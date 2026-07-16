@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const word = "ÇARDAKLI";
 
@@ -35,13 +36,15 @@ const sideImages = [
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
       const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
+      // Shorter scrub distance on mobile for a lighter animation
+      const scrollableHeight = window.innerHeight * (isMobile ? 1 : 2);
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
 
@@ -54,7 +57,7 @@ export function HeroSection() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   // Text fades out first (0 to 0.2)
   const textOpacity = Math.max(0, 1 - (scrollProgress / 0.2));
@@ -62,15 +65,16 @@ export function HeroSection() {
   // Image transforms start after text fades (0.2 to 1)
   const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
 
-  // Smooth interpolations
-  const centerWidth = 100 - (imageProgress * 58); // 100% to 42%
-  const centerHeight = 100 - (imageProgress * 30); // 100% to 70%
-  const sideWidth = imageProgress * 22; // 0% to 22%
+  // Smooth interpolations; on mobile the center image only shrinks slightly
+  // and side columns are skipped entirely
+  const centerWidth = 100 - (imageProgress * (isMobile ? 10 : 58)); // 100% to 90% / 42%
+  const centerHeight = 100 - (imageProgress * (isMobile ? 35 : 30)); // 100% to 65% / 70%
+  const sideWidth = isMobile ? 0 : imageProgress * 22; // 0% to 22%
   const sideOpacity = imageProgress;
   const sideTranslateLeft = -100 + (imageProgress * 100); // -100% to 0%
   const sideTranslateRight = 100 - (imageProgress * 100); // 100% to 0%
   const borderRadius = imageProgress * 24; // 0px to 24px
-  const gap = imageProgress * 16; // 0px to 16px
+  const gap = isMobile ? 0 : imageProgress * 16; // 0px to 16px
 
   // Vertical offset for side columns to move them up on mobile
   const sideTranslateY = -(imageProgress * 15); // Move up by 15% when fully expanded
@@ -86,9 +90,9 @@ export function HeroSection() {
             style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px`, paddingBottom: `${60 + (imageProgress * 40)}px` }}
           >
 
-            {/* Left Column */}
+            {/* Left Column - desktop only */}
             <div
-              className="flex flex-col will-change-transform"
+              className="hidden flex-col will-change-transform md:flex"
               style={{
                 width: `${sideWidth}%`,
                 gap: `${gap}px`,
@@ -140,7 +144,7 @@ export function HeroSection() {
                 style={{ opacity: textOpacity }}
               >
                 <p className="px-3 pb-2 text-sm uppercase tracking-[0.3em] text-white/80 md:text-base">
-                  Urfa Sıra Gecesi
+                  Urfa Sıra Gecesi &middot; Her Akşam 19:30 – 23:00
                 </p>
                 <h1 className="w-full text-[19vw] font-medium leading-[0.8] tracking-tighter text-white">
                   {word.split("").map((letter, index) => (
@@ -160,9 +164,9 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* Right Column - desktop only */}
             <div
-              className="flex flex-col will-change-transform"
+              className="hidden flex-col will-change-transform md:flex"
               style={{
                 width: `${sideWidth}%`,
                 gap: `${gap}px`,
@@ -193,8 +197,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll space to enable animation */}
-      <div className="h-[200vh]" />
+      {/* Scroll space to enable animation - shorter on mobile */}
+      <div className="h-[100vh] md:h-[200vh]" />
 
       {/* Tagline Section */}
       <div className="px-6 pt-32 pb-28 md:pt-48 md:px-12 md:pb-36 lg:px-20 lg:pt-56 lg:pb-44">

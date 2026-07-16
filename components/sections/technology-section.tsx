@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 function ScrollRevealText({ text }: { text: string }) {
   const containerRef = useRef<HTMLParagraphElement>(null);
@@ -36,7 +37,7 @@ function ScrollRevealText({ text }: { text: string }) {
   return (
     <p
       ref={containerRef}
-      className="text-3xl font-semibold leading-snug md:text-4xl lg:text-5xl"
+      className="text-2xl font-semibold leading-snug md:text-4xl lg:text-5xl"
     >
       {words.map((word, index) => {
         const wordProgress = index / words.length;
@@ -89,6 +90,7 @@ export function TechnologySection() {
   const sectionRef = useRef<HTMLElement>(null);
   const textSectionRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const isMobile = useIsMobile();
 
   const descriptionText = "Sıra gecesi; ses, saz ve söz üzerine kurulu bir muhabbet meclisidir. Urfa'nın taş konaklarında yüzyıllardır süren bu gelenekte türküler söylenir, gazeller okunur, çiğ köfte yoğrulur ve mırra ikram edilir. Çardaklı Köşk, bu mirası tarihi atmosferinde en otantik haliyle yaşatır.";
 
@@ -97,7 +99,8 @@ export function TechnologySection() {
       if (!sectionRef.current) return;
 
       const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
+      // Shorter scrub distance on mobile for a lighter animation
+      const scrollableHeight = window.innerHeight * (isMobile ? 1 : 2);
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
 
@@ -110,19 +113,20 @@ export function TechnologySection() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
 
   // Image transforms start after title fades (0.2 to 1)
   const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
 
-  // Smooth interpolations
-  const centerWidth = 100 - (imageProgress * 58); // 100% to 42%
-  const sideWidth = imageProgress * 22; // 0% to 22%
+  // Smooth interpolations; on mobile the center image only shrinks slightly
+  // and side columns are skipped entirely
+  const centerWidth = 100 - (imageProgress * (isMobile ? 10 : 58)); // 100% to 90% / 42%
+  const sideWidth = isMobile ? 0 : imageProgress * 22; // 0% to 22%
   const sideOpacity = imageProgress;
   const sideTranslateLeft = -100 + (imageProgress * 100); // -100% to 0%
   const sideTranslateRight = 100 - (imageProgress * 100); // 100% to 0%
   const borderRadius = imageProgress * 24; // 0px to 24px
-  const gap = imageProgress * 16; // 0px to 16px
+  const gap = isMobile ? 0 : imageProgress * 16; // 0px to 16px
 
   return (
     <section ref={sectionRef} className="relative bg-foreground">
@@ -135,9 +139,9 @@ export function TechnologySection() {
             style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px` }}
           >
 
-            {/* Left Column */}
+            {/* Left Column - desktop only */}
             <div
-              className="flex flex-col will-change-transform"
+              className="hidden flex-col will-change-transform md:flex"
               style={{
                 width: `${sideWidth}%`,
                 gap: `${gap}px`,
@@ -215,9 +219,9 @@ export function TechnologySection() {
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* Right Column - desktop only */}
             <div
-              className="flex flex-col will-change-transform"
+              className="hidden flex-col will-change-transform md:flex"
               style={{
                 width: `${sideWidth}%`,
                 gap: `${gap}px`,
@@ -248,8 +252,8 @@ export function TechnologySection() {
         </div>
       </div>
 
-      {/* Scroll space to enable animation */}
-      <div className="h-[200vh]" />
+      {/* Scroll space to enable animation - shorter on mobile */}
+      <div className="h-[100vh] md:h-[200vh]" />
 
       {/* Description Section with Scroll Reveal */}
       <div

@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Landmark, Speaker, UtensilsCrossed, Music, Instagram } from "lucide-react";
+
+const eventFeatures = [
+  { icon: Landmark, label: "Kapalı alan + tarihi atmosfer" },
+  { icon: Speaker, label: "Profesyonel ses ve ışık sistemi" },
+  { icon: UtensilsCrossed, label: "Zengin menü seçenekleri" },
+  { icon: Music, label: "Sanatçı ekibiyle özel program imkânı" },
+];
 
 const footerLinks = {
   kesfet: [
@@ -17,6 +24,30 @@ const footerLinks = {
 export function FooterSection() {
   return (
     <footer id="iletisim" className="bg-background">
+      {/* Special Events & Group Reservations */}
+      <div className="border-t border-border px-6 py-20 md:px-12 md:py-28 lg:px-20">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">
+          Özel Etkinlik ve Grup Rezervasyonları
+        </p>
+        <h2 className="mt-6 max-w-3xl text-3xl font-medium tracking-tight text-foreground md:text-4xl">
+          Sadece sıra gecesi değil, özel etkinlikler için de doğru adres.
+        </h2>
+        <p className="mt-6 max-w-2xl text-muted-foreground">
+          Tur grupları, kurumsal organizasyonlar, doğum günü kutlamaları ve arkadaş
+          buluşmaları için özel rezervasyon imkânı sunuyoruz. Misafirlerinize
+          Şanlıurfa&apos;nın otantik sıra gecesi kültürünü yaşatmak için bizimle
+          iletişime geçin.
+        </p>
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {eventFeatures.map((feature) => (
+            <div key={feature.label} className="flex items-center gap-3 rounded-2xl bg-secondary p-6">
+              <feature.icon size={20} className="shrink-0 text-primary" />
+              <span className="text-sm text-foreground">{feature.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Reservation CTA */}
       <div className="border-t border-border px-6 py-20 text-center md:px-12 md:py-28 lg:px-20">
         <p className="text-xs uppercase tracking-widest text-muted-foreground">
@@ -106,13 +137,24 @@ export function FooterSection() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0" />
-                <a href="mailto:info@cardaklikosk.com" className="transition-colors hover:text-foreground">
-                  info@cardaklikosk.com
+                <a href="mailto:info@urfasiragecelerim.com" className="transition-colors hover:text-foreground">
+                  info@urfasiragecelerim.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Clock size={16} className="shrink-0" />
                 <span>Her akşam 19:30 – 23:00</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Instagram size={16} className="shrink-0" />
+                <a
+                  href="https://www.instagram.com/cardaklikoskonukevi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-foreground"
+                >
+                  @cardaklikoskonukevi
+                </a>
               </li>
             </ul>
           </div>
@@ -128,12 +170,14 @@ export function FooterSection() {
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
-            <Link
-              href="#"
+            <a
+              href="https://www.instagram.com/cardaklikoskonukevi/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs text-muted-foreground transition-colors hover:text-foreground"
             >
               Instagram
-            </Link>
+            </a>
             <Link
               href="#"
               className="text-xs text-muted-foreground transition-colors hover:text-foreground"

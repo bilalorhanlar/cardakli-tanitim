@@ -8,11 +8,13 @@ import { CollectionSection } from "@/components/sections/collection-section";
 import { EditorialSection } from "@/components/sections/editorial-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FooterSection } from "@/components/sections/footer-section";
+import { FloatingCallButton } from "@/components/floating-call-button";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen overflow-x-clip bg-background">
       <Header />
+      <FloatingCallButton />
       <HeroSection />
       <PhilosophySection />
       <FeaturedProductsSection />

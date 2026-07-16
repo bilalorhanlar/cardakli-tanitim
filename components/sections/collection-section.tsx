@@ -49,8 +49,10 @@ export function CollectionSection() {
         <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
           Sıra Gecesi Menüsü
         </h2>
-        <p className="mt-4 max-w-xl text-muted-foreground">
-          Tüm ikramlar sıra gecesi ücretine dahildir. Su, çay ve ayran gece boyunca sınırsızdır.
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          Tüm ikramlar sıra gecesi ücretine dahildir: içli köfte, fındık lahmacun, 1 porsiyon
+          Urfa kebabı, lebeni yoğurt çorbası, bostana salatası, çiğ köfte, baklava, ayran,
+          çay, su ve geleneksel mırra.
         </p>
       </div>
 

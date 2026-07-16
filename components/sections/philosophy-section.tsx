@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function PhilosophySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -9,6 +10,10 @@ export function PhilosophySection() {
   const [tableTranslateX, setTableTranslateX] = useState(100);
   const [titleOpacity, setTitleOpacity] = useState(1);
   const rafRef = useRef<number | null>(null);
+  const isMobile = useIsMobile();
+
+  // Smaller slide distance on mobile for a calmer animation
+  const slideDistance = isMobile ? 40 : 100;
 
   const updateTransforms = useCallback(() => {
     if (!sectionRef.current) return;
@@ -22,15 +27,15 @@ export function PhilosophySection() {
     const scrolled = -rect.top;
     const progress = Math.max(0, Math.min(1, scrolled / scrollableRange));
 
-    // Music image comes from left (-100% to 0%)
-    setMusicTranslateX((1 - progress) * -100);
+    // Music image comes from left
+    setMusicTranslateX((1 - progress) * -slideDistance);
 
-    // Table image comes from right (100% to 0%)
-    setTableTranslateX((1 - progress) * 100);
+    // Table image comes from right
+    setTableTranslateX((1 - progress) * slideDistance);
 
     // Title fades out as blocks come together
     setTitleOpacity(1 - progress);
-  }, []);
+  }, [slideDistance]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,9 +59,9 @@ export function PhilosophySection() {
 
   return (
     <section id="sira-gecesi" className="bg-background">
-      {/* Scroll-Animated Grid */}
-      <div ref={sectionRef} className="relative" style={{ height: "200vh" }}>
-        <div className="sticky top-0 h-screen flex items-center justify-center">
+      {/* Scroll-Animated Grid - shorter scrub on mobile */}
+      <div ref={sectionRef} className="relative" style={{ height: isMobile ? "150vh" : "200vh" }}>
+        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
           <div className="relative w-full">
             {/* Title - positioned behind the blocks */}
             <div
@@ -126,10 +131,10 @@ export function PhilosophySection() {
           <p className="text-xs uppercase tracking-widest text-muted-foreground">
             Her akşam 19:30 – 23:00
           </p>
-          <p className="mt-8 leading-relaxed text-muted-foreground text-3xl text-center">
-            Çardaklı Köşk&apos;te her akşam, usta sanatçıların canlı sahne performansları eşliğinde
-            yöresel türküler söylenir, halaylar çekilir ve Urfa mutfağının en özel
-            lezzetleri aynı sofrada buluşur.
+          <p className="mt-8 leading-relaxed text-muted-foreground text-xl md:text-2xl lg:text-3xl text-center">
+            Çardaklı Köşk&apos;te her akşam, usta sanatçılar Tekin Tatar ve Hakim Aslan ile
+            ekiplerinin canlı sahne performansları eşliğinde yöresel türküler söylenir,
+            halaylar çekilir ve Urfa mutfağının en özel lezzetleri aynı sofrada buluşur.
           </p>
         </div>
       </div>
