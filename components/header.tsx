@@ -50,7 +50,7 @@ export function Header() {
             alt="Çardaklı Köşk Konukevi"
             width={200}
             height={100}
-            className={`h-10 w-auto object-contain transition-all duration-300 md:h-12 ${isSolid ? "" : "drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]"}`}
+            className={`h-12 w-auto object-contain transition-all duration-300 md:h-14 ${isSolid ? "" : "drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]"}`}
             priority
           />
         </Link>

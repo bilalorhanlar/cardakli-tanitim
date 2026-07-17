@@ -89,7 +89,7 @@ export function FooterSection() {
                 alt="Çardaklı Köşk Konukevi"
                 width={140}
                 height={110}
-                className="h-20 w-auto object-contain md:h-24"
+                className="h-28 w-auto object-contain md:h-32"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
