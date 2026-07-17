@@ -6,38 +6,38 @@ const features = [
   {
     title: "Canlı Müzik Faslı",
     description: "Sahne",
-    image: "/images/akis-canli-muzik.jpg",
+    image: "/images/sanatci-2.jpg",
   },
   {
     title: "Çiğ Köfte Şovu",
     description: "Gelenek",
-    image: "/images/akis-cig-kofte.jpg",
+    image: "/images/cigkofte.webp",
   },
   {
     title: "Urfa Kebabı İkramı",
     description: "Lezzet",
-    image: "/images/akis-urfa-kebabi.jpg",
+    image: "/images/kebap.webp",
   },
   {
     title: "Geleneksel Mırra",
     description: "Ritüel",
-    image: "/images/akis-mirra.jpg",
+    image: "/images/mirra.jpg",
   },
   {
     title: "Halay ve Oyunlar",
     description: "Eğlence",
-    image: "/images/akis-halay.jpg",
+    image: "/images/eglencee-3.jpg",
   },
   {
-    title: "Şark Odaları",
+    title: "Tarihi Avlu ve Teras",
     description: "Atmosfer",
-    image: "/images/akis-sark-odasi.jpg",
+    image: "/images/balkon.jpg",
   },
 ];
 
 export function FeaturedProductsSection() {
   return (
-    <section id="gece-akisi" className="bg-background">
+    <section id="gece-akisi" className="scroll-mt-24 bg-background">
       {/* Section Title */}
       <div className="px-6 py-20 text-center md:px-12 md:py-28 lg:px-20 lg:py-32 lg:pb-20">
         <h2 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl lg:text-5xl">

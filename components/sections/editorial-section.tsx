@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 const specs = [
-  { label: "Program", value: "20:00 – 23:00" },
+  { label: "Program", value: "19:30 – 23:00" },
   { label: "Şark Odası", value: "4" },
   { label: "İkram Çeşidi", value: "12" },
   { label: "Kapasite", value: "50 kişi" },
@@ -11,7 +11,7 @@ const specs = [
 
 export function EditorialSection() {
   return (
-    <section className="bg-background">
+    <section id="hakkimizda" className="scroll-mt-24 bg-background">
       {/* Specs Grid */}
       <div className="grid grid-cols-2 border-t border-border md:grid-cols-4">
         {specs.map((spec) => (
@@ -29,15 +29,6 @@ export function EditorialSection() {
         ))}
       </div>
 
-      {/* Full-width Image */}
-      <div className="relative aspect-[16/9] w-full md:aspect-[21/9]">
-        <Image
-          src="/images/hakkimizda-kosk.jpg"
-          alt="Çardaklı Köşk'ün tarihi taş mimarisi"
-          fill
-          className="object-cover"
-        />
-      </div>
     </section>
   );
 }

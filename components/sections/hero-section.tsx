@@ -8,26 +8,26 @@ const word = "ÇARDAKLI";
 
 const sideImages = [
   {
-    src: "/images/hero-sol-1.jpg",
+    src: "/images/merdiven.jpg",
+    alt: "Köşkün tarihi taş merdiveni",
+    position: "left",
+    span: 1,
+  },
+  {
+    src: "/images/sanatci-2.jpg",
     alt: "Sıra gecesinde canlı müzik",
     position: "left",
     span: 1,
   },
   {
-    src: "/images/hero-sol-2.jpg",
-    alt: "Geleneksel mırra ikramı",
-    position: "left",
-    span: 1,
-  },
-  {
-    src: "/images/hero-sag-1.jpg",
-    alt: "Çiğ köfte yoğurma",
+    src: "/images/sanatci-3.jpg",
+    alt: "Sanatçının çalışması",
     position: "right",
     span: 1,
   },
   {
-    src: "/images/hero-sag-2.jpg",
-    alt: "Tarihi köşkün avlusu",
+    src: "/images/balkon.jpg",
+    alt: "Köşkün avlusu ve terası",
     position: "right",
     span: 1,
   },
@@ -130,7 +130,7 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="/images/tarihin-ve-lezzetin-bulusma-noktasi-cardakli-kosk-131748-20250915.webp"
+                src="/images/anasayfa.webp"
                 alt="Çardaklı Köşk'ün tarihi avlusunda sıra gecesi"
                 fill
                 className="object-cover"

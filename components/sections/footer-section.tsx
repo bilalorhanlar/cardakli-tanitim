@@ -49,7 +49,7 @@ export function FooterSection() {
       </div>
 
       {/* Reservation CTA */}
-      <div className="border-t border-border px-6 py-20 text-center md:px-12 md:py-28 lg:px-20">
+      <div id="rezervasyon" className="scroll-mt-24 border-t border-border px-6 py-20 text-center md:px-12 md:py-28 lg:px-20">
         <p className="text-xs uppercase tracking-widest text-muted-foreground">
           Rezervasyon
         </p>
@@ -60,10 +60,10 @@ export function FooterSection() {
           Bireysel misafirler, tur grupları, kurumsal organizasyonlar ve özel
           kutlamalar için her akşam rezervasyon alıyoruz.
         </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
           <a
             href="tel:+905325798308"
-            className="rounded-full bg-primary px-8 py-4 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            className="rounded-full bg-primary px-8 py-4 text-center text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Hemen Ara: 0532 579 83 08
           </a>
@@ -71,7 +71,7 @@ export function FooterSection() {
             href="https://wa.me/905325798308"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-border px-8 py-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            className="rounded-full border border-border px-8 py-4 text-center text-sm font-medium text-foreground transition-colors hover:bg-secondary"
           >
             WhatsApp ile Yazın
           </a>
@@ -79,28 +79,39 @@ export function FooterSection() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="border-t border-border px-6 py-16 md:px-12 md:py-20 lg:px-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+      <div className="border-t border-border px-6 py-14 md:px-12 md:py-20 lg:px-20">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.4fr] lg:gap-12">
           {/* Brand */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block">
               <Image
                 src="/images/logo.png"
                 alt="Çardaklı Köşk Konukevi"
                 width={140}
                 height={110}
-                className="h-24 w-auto object-contain"
+                className="h-20 w-auto object-contain md:h-24"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Balıklıgöl&apos;ün karşısında, tarihi bir Urfa konağında otantik sıra
               gecesi deneyimi. Canlı müzik, yöresel sofra ve yüzyıllık gelenek.
             </p>
+            <a
+              href="https://www.instagram.com/cardaklikoskonukevi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-foreground transition-colors hover:bg-secondary"
+            >
+              <Instagram size={16} />
+              @cardaklikoskonukevi
+            </a>
           </div>
 
           {/* Keşfet */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">Keşfet</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-foreground">
+              Keşfet
+            </h4>
             <ul className="space-y-3">
               {footerLinks.kesfet.map((link) => (
                 <li key={link.label}>
@@ -117,44 +128,42 @@ export function FooterSection() {
 
           {/* İletişim */}
           <div>
-            <h4 className="mb-4 text-sm font-medium text-foreground">İletişim</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-widest text-foreground">
+              İletişim
+            </h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0" />
-                <span>Balıklıgöl Cad. Yeni Mah. No:40, 63000 Eyyübiye / Şanlıurfa</span>
+              <li>
+                <a
+                  href="https://maps.google.com/?q=Çardaklı+Köşk+Balıklıgöl+Cad.+Yeni+Mah.+No:40+Eyyübiye+Şanlıurfa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 transition-colors hover:text-foreground"
+                >
+                  <MapPin size={16} className="mt-0.5 shrink-0" />
+                  <span>Balıklıgöl Cad. Yeni Mah. No:40, 63000 Eyyübiye / Şanlıurfa</span>
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0" />
-                <a href="tel:+905325798308" className="transition-colors hover:text-foreground">
+              <li>
+                <a href="tel:+905325798308" className="flex items-center gap-2.5 transition-colors hover:text-foreground">
+                  <Phone size={16} className="shrink-0" />
                   0532 579 83 08
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0" />
-                <a href="tel:+905422374848" className="transition-colors hover:text-foreground">
+              <li>
+                <a href="tel:+905422374848" className="flex items-center gap-2.5 transition-colors hover:text-foreground">
+                  <Phone size={16} className="shrink-0" />
                   0542 237 48 48
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="shrink-0" />
-                <a href="mailto:info@urfasiragecelerim.com" className="transition-colors hover:text-foreground">
+              <li>
+                <a href="mailto:info@urfasiragecelerim.com" className="flex items-center gap-2.5 transition-colors hover:text-foreground">
+                  <Mail size={16} className="shrink-0" />
                   info@urfasiragecelerim.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2.5">
                 <Clock size={16} className="shrink-0" />
                 <span>Her akşam 19:30 – 23:00</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Instagram size={16} className="shrink-0" />
-                <a
-                  href="https://www.instagram.com/cardaklikoskonukevi/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-foreground"
-                >
-                  @cardaklikoskonukevi
-                </a>
               </li>
             </ul>
           </div>
@@ -163,34 +172,27 @@ export function FooterSection() {
 
       {/* Bottom Bar */}
       <div className="border-t border-border px-6 py-6 md:px-12 lg:px-20">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="flex flex-col-reverse items-center justify-between gap-3 text-center md:flex-row md:text-left">
           <p className="text-xs text-muted-foreground">
-            © 2026 Çardaklı Köşk. Tüm hakları saklıdır.
-          </p>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
+            © 2026{" "}
             <a
-              href="https://www.instagram.com/cardaklikoskonukevi/"
+              href="https://bilalorhanlar.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+              className="transition-colors hover:text-foreground"
             >
-              Instagram
+              Bilal Orhanlar
             </a>
-            <Link
-              href="#"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Facebook
-            </Link>
-            <Link
-              href="#"
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              YouTube
-            </Link>
-          </div>
+            . Tüm hakları saklıdır.
+          </p>
+          <a
+            href="https://www.instagram.com/cardaklikoskonukevi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Instagram
+          </a>
         </div>
       </div>
     </footer>

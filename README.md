@@ -28,18 +28,18 @@ npm run start
 
 ## Görseller
 
-Tüm görseller `public/images/` klasöründe açıklayıcı isimlerle placeholder olarak duruyor. Gerçek fotoğraflarla değiştirmek için aynı dosya adlarını koruyarak üzerine yazmanız yeterli:
+Tüm görseller `public/images/` klasöründe duruyor:
 
 | Dosya | Kullanıldığı yer |
 | --- | --- |
-| `hero-avlu.jpg` | Açılış (hero) ana görseli ve Hakkımızda alt görseli |
-| `hero-sol-1.jpg`, `hero-sol-2.jpg`, `hero-sag-1.jpg`, `hero-sag-2.jpg` | Hero kaydırma animasyonundaki yan görseller |
-| `sira-gecesi-muzik.jpg`, `sira-gecesi-sofra.jpg` | "Müzik & Sofra" bölümü |
-| `akis-*.jpg` (6 adet) | "Gecenin Akışı" kartları |
-| `gelenek-ana.jpg`, `gelenek-sol-*.jpg`, `gelenek-sag-*.jpg` | "Gelenek Burada Yaşıyor" animasyonlu bölüm |
-| `galeri-1.jpg` … `galeri-8.jpg` | Yatay kaydırmalı galeri |
-| `menu-*.jpg` (6 adet) | Sıra gecesi menüsü kartları |
-| `hakkimizda-kosk.jpg` | Bilgi kartlarının altındaki geniş görsel |
+| `anasayfa.webp` | Açılış (hero) ana görseli ve Hakkımızda alt görseli |
+| `merdiven.jpg`, `sanatci-2.jpg`, `cigkofte.webp`, `balkon.jpg` | Hero kaydırma animasyonundaki yan görseller (masaüstü) |
+| `sanatci-3.jpg`, `sofra-menu.webp` | "Müzik & Sofra" bölümü |
+| `sanatci-2.jpg`, `cigkofte.webp`, `kebap.webp`, `mirra.jpg`, `sanatci-3.jpg`, `balkon.jpg` | "Gecenin Akışı" kartları |
+| `gece-mekan.jpg` (merkez), `merdiven.jpg`, `sofra-menu.webp`, `sanatci-2.jpg`, `mirra.jpg` (yanlar) | "Gelenek Burada Yaşıyor" animasyonlu bölüm |
+| `gece-mekan.jpg`, `sanatci-*.jpg`, `balkon.jpg`, `cigkofte.webp`, `sofra-menu.webp`, `mirra.jpg`, `merdiven.jpg` | Yatay kaydırmalı galeri |
+| `iclikofte.jpg`, `lahmacun.jpeg`, `kebap.webp`, `lebeni.webp`, `bostana.webp`, `cigkofte.webp`, `baklava.jpg`, `ayran.jpg`, `cay.jpeg`, `mirra.jpg` | Sıra gecesi menüsü kartları |
+| `logo.png` | Navbar, footer ve favicon |
 
 ## Sayfa Bölümleri
 

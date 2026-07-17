@@ -16,13 +16,9 @@ export default function Home() {
       <Header />
       <FloatingCallButton />
       <HeroSection />
-      <PhilosophySection />
       <FeaturedProductsSection />
-      <TechnologySection />
-      <GallerySection />
       <CollectionSection />
       <EditorialSection />
-      <TestimonialsSection />
       <FooterSection />
     </main>
   );

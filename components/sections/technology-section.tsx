@@ -61,25 +61,25 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "/images/gelenek-sol-1.jpg",
+    src: "/images/merdiven.jpg",
     alt: "Köşkün taş işçiliği",
     position: "left",
     span: 1,
   },
   {
-    src: "/images/gelenek-sol-2.jpg",
-    alt: "Şark odasında sohbet",
+    src: "/images/sofra-menu.webp",
+    alt: "Yöresel Urfa sofrası",
     position: "left",
     span: 1,
   },
   {
-    src: "/images/gelenek-sag-1.jpg",
+    src: "/images/sanatci-2.jpg",
     alt: "Bağlama ile türkü faslı",
     position: "right",
     span: 1,
   },
   {
-    src: "/images/gelenek-sag-2.jpg",
+    src: "/images/mirra.jpg",
     alt: "Geleneksel mırra sunumu",
     position: "right",
     span: 1,
@@ -179,7 +179,7 @@ export function TechnologySection() {
               }}
             >
               <Image
-                src="/images/gelenek-ana.jpg"
+                src="/images/gece-mekan.jpg"
                 alt="Çardaklı Köşk'te sıra gecesi atmosferi"
                 fill
                 className="object-cover"

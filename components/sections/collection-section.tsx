@@ -6,38 +6,62 @@ const menuItems = [
   {
     id: 1,
     name: "İçli Köfte",
-    description: "Arasıcak olarak servis edilen el yapımı içli köfte",
-    image: "/images/menu-icli-kofte.jpg",
+    label: "Arasıcak",
+    image: "/images/iclikofte.jpg",
   },
   {
     id: 2,
     name: "Fındık Lahmacun",
-    description: "İncecik hamuruyla ağızda dağılan Urfa usulü lahmacun",
-    image: "/images/menu-findik-lahmacun.jpg",
+    label: "Arasıcak",
+    image: "/images/lahmacun.jpeg",
   },
   {
     id: 3,
     name: "Urfa Kebabı",
-    description: "Közde pişen, gecenin ana yemeği Urfa kebabı",
-    image: "/images/menu-urfa-kebabi.jpg",
+    label: "Ana Yemek",
+    image: "/images/kebap.webp",
   },
   {
     id: 4,
     name: "Lebeni Çorbası",
-    description: "Yoğurtlu geleneksel Urfa çorbası ve bostana salatası",
-    image: "/images/menu-lebeni-corbasi.jpg",
+    label: "Çorba",
+    image: "/images/lebeni.webp",
   },
   {
     id: 5,
-    name: "Çiğ Köfte",
-    description: "Gecenin yıldızı; gözünüzün önünde yoğrulan çiğ köfte",
-    image: "/images/menu-cig-kofte.jpg",
+    name: "Bostana Salatası",
+    label: "Salata",
+    image: "/images/bostana.webp",
   },
   {
     id: 6,
-    name: "Baklava ve Mırra",
-    description: "Tatlı faslı; baklava, çay, ayran ve geleneksel mırra",
-    image: "/images/menu-baklava.jpg",
+    name: "Çiğ Köfte",
+    label: "Gecenin Yıldızı",
+    image: "/images/cigkofte.webp",
+  },
+  {
+    id: 7,
+    name: "Baklava",
+    label: "Tatlı",
+    image: "/images/baklava.jpg",
+  },
+  {
+    id: 8,
+    name: "Ayran",
+    label: "İçecek",
+    image: "/images/ayran.jpg",
+  },
+  {
+    id: 9,
+    name: "Çay",
+    label: "İçecek",
+    image: "/images/cay.jpeg",
+  },
+  {
+    id: 10,
+    name: "Geleneksel Mırra",
+    label: "İkram",
+    image: "/images/mirra.jpg",
   },
 ];
 
@@ -50,75 +74,35 @@ export function CollectionSection() {
           Sıra Gecesi Menüsü
         </h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">
-          Tüm ikramlar sıra gecesi ücretine dahildir: içli köfte, fındık lahmacun, 1 porsiyon
-          Urfa kebabı, lebeni yoğurt çorbası, bostana salatası, çiğ köfte, baklava, ayran,
-          çay, su ve geleneksel mırra.
+          Tüm ikramlar sıra gecesi ücretine dahildir. Su gece boyunca sınırsızdır.
         </p>
       </div>
 
-      {/* Menu Grid/Carousel */}
-      <div className="pb-24">
-        {/* Mobile: Horizontal Carousel */}
-        <div className="flex gap-6 overflow-x-auto px-6 pb-4 md:hidden snap-x snap-mandatory scrollbar-hide">
-          {menuItems.map((item) => (
-            <div key={item.id} className="group flex-shrink-0 w-[75vw] snap-center">
-              {/* Image */}
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
-                <FadeImage
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.name}
-                  fill
-                  className="object-cover group-hover:scale-105"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="py-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium leading-snug text-foreground">
-                      {item.name}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+      {/* Menu Grid: 2 sütun mobil, 5 sütun masaüstü */}
+      <div className="grid grid-cols-2 gap-4 px-6 pb-24 md:grid-cols-5 md:gap-5 md:px-12 lg:px-20">
+        {menuItems.map((item) => (
+          <div key={item.id} className="group">
+            {/* Image */}
+            <div className="relative aspect-square overflow-hidden rounded-xl bg-secondary">
+              <FadeImage
+                src={item.image || "/placeholder.svg"}
+                alt={item.name}
+                fill
+                className="object-cover group-hover:scale-105"
+              />
             </div>
-          ))}
-        </div>
 
-        {/* Desktop: Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 md:px-12 lg:px-20">
-          {menuItems.map((item) => (
-            <div key={item.id} className="group">
-              {/* Image */}
-              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
-                <FadeImage
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.name}
-                  fill
-                  className="object-cover group-hover:scale-105"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="py-6">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium leading-snug text-foreground">
-                      {item.name}
-                    </h3>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {/* Content */}
+            <div className="py-3">
+              <p className="text-[11px] uppercase tracking-widest text-muted-foreground">
+                {item.label}
+              </p>
+              <h3 className="mt-1 text-sm font-medium leading-snug text-foreground md:text-base">
+                {item.name}
+              </h3>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

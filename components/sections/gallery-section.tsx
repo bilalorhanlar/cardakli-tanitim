@@ -11,14 +11,14 @@ export function GallerySection() {
   const rafRef = useRef<number | null>(null);
 
   const images = [
-    { src: "/images/galeri-1.jpg", alt: "Sıra gecesinde sahne" },
-    { src: "/images/galeri-2.jpg", alt: "Tarihi köşkün avlusu" },
-    { src: "/images/galeri-3.jpg", alt: "Çiğ köfte yoğurma anı" },
-    { src: "/images/galeri-4.jpg", alt: "Halay çeken misafirler" },
-    { src: "/images/galeri-5.jpg", alt: "Yöresel sofra kurulumu" },
-    { src: "/images/galeri-6.jpg", alt: "Şark odasında misafirler" },
-    { src: "/images/galeri-7.jpg", alt: "Mırra ikramı" },
-    { src: "/images/galeri-8.jpg", alt: "Gece manzarasıyla teras" },
+    { src: "/images/gece-mekan.jpg", alt: "Köşkün gece görünümü" },
+    { src: "/images/sanatci-2.jpg", alt: "Sıra gecesinde sahne" },
+    { src: "/images/balkon.jpg", alt: "Tarihi köşkün avlusu ve terası" },
+    { src: "/images/cigkofte.webp", alt: "Çiğ köfte yoğurma anı" },
+    { src: "/images/sofra-menu.webp", alt: "Yöresel sofra kurulumu" },
+    { src: "/images/sanatci-3.jpg", alt: "Şark odasında canlı müzik" },
+    { src: "/images/mirra.jpg", alt: "Mırra ikramı" },
+    { src: "/images/merdiven.jpg", alt: "Köşkün taş merdiveni" },
   ];
 
   // Calculate section height based on content width

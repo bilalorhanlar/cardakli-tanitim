@@ -6,11 +6,10 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Sıra Gecesi", href: "#sira-gecesi" },
+  { label: "Sıra Gecesi", href: "#gece-akisi" },
   { label: "Menü", href: "#menu" },
-  { label: "Galeri", href: "#galeri" },
   { label: "Hakkımızda", href: "#hakkimizda" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "İletişim", href: "#rezervasyon" },
 ];
 
 export function Header() {
@@ -29,7 +28,12 @@ export function Header() {
   // Menü açıkken de açık zemin kullan ki içerik okunur kalsın
   const isSolid = isScrolled || isMenuOpen;
 
-  const linkClass = `text-sm transition-colors ${isSolid ? "text-muted-foreground hover:text-foreground" : "text-white/80 hover:text-white"}`;
+  // Hover'da alttan beliren ince çizgi efekti
+  const linkClass = `relative text-sm transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full ${
+    isSolid
+      ? "text-muted-foreground hover:text-foreground"
+      : "text-white/90 hover:text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]"
+  }`;
 
   return (
     <header
@@ -40,27 +44,27 @@ export function Header() {
     >
       <div className="flex h-14 items-center justify-between px-4 transition-all duration-300 md:h-16 md:px-6">
         {/* Logo - left */}
-        <Link href="#" className="flex min-w-0 items-center">
+        <Link href="#" className="flex min-w-0 shrink-0 items-center">
           <Image
             src="/images/logo.png"
             alt="Çardaklı Köşk Konukevi"
             width={200}
             height={100}
-            className="h-12 w-auto object-contain"
+            className={`h-10 w-auto object-contain transition-all duration-300 md:h-12 ${isSolid ? "" : "drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]"}`}
             priority
           />
         </Link>
 
         {/* Desktop Navigation + CTA - right */}
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className={linkClass}>
               {link.label}
             </Link>
           ))}
           <Link
-            href="#iletisim"
-            className={`px-4 py-2 text-sm font-medium transition-all rounded-full ${isSolid ? "bg-primary text-primary-foreground hover:opacity-90" : "bg-white text-foreground hover:bg-white/90"}`}
+            href="#rezervasyon"
+            className={`px-5 py-2 text-sm font-medium transition-all rounded-full ${isSolid ? "bg-primary text-primary-foreground shadow-sm hover:opacity-90" : "bg-white text-foreground shadow-md hover:bg-white/90"}`}
           >
             Rezervasyon
           </Link>
@@ -79,21 +83,21 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="border-t border-border bg-background px-6 py-8 md:hidden rounded-b-2xl">
-          <nav className="flex flex-col gap-6">
+        <div className="border-t border-border px-6 pb-6 pt-2 md:hidden">
+          <nav className="flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg text-foreground"
+                className="border-b border-border/60 py-4 text-base font-medium text-foreground transition-colors last:border-b-0 hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="#iletisim"
-              className="mt-4 bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground rounded-full"
+              href="#rezervasyon"
+              className="mt-5 rounded-full bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground"
               onClick={() => setIsMenuOpen(false)}
             >
               Rezervasyon

@@ -86,7 +86,7 @@ export function PhilosophySection() {
                 }}
               >
                 <Image
-                  src="/images/sira-gecesi-muzik.jpg"
+                  src="/images/sanatci-3.jpg"
                   alt="Sıra gecesinde canlı müzik faslı"
                   fill
                   className="object-cover"
@@ -109,7 +109,7 @@ export function PhilosophySection() {
                 }}
               >
                 <Image
-                  src="/images/sira-gecesi-sofra.jpg"
+                  src="/images/sofra-menu.webp"
                   alt="Yöresel Urfa sofrası"
                   fill
                   className="object-cover"

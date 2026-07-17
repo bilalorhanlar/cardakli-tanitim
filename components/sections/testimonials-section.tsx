@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function TestimonialsSection() {
   return (
-    <section id="hakkimizda" className="bg-background">
+    <section className="bg-background">
       {/* Large Text Statement */}
       <div className="px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40">
         <p className="mx-auto max-w-5xl text-2xl leading-relaxed text-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
@@ -17,7 +17,7 @@ export function TestimonialsSection() {
       {/* About Image */}
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src="/images/hero-avlu.jpg"
+          src="/images/anasayfa.webp"
           alt="Çardaklı Köşk avlusunda akşam"
           fill
           className="object-cover"
