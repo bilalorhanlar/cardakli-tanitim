@@ -26,7 +26,7 @@ const features = [
   {
     title: "Halay ve Oyunlar",
     description: "Eğlence",
-    image: "/images/eglencee-3.jpg",
+    image: "/images/Eglencee-3.jpg",
   },
   {
     title: "Tarihi Avlu ve Teras",
